@@ -1,0 +1,10 @@
+Funcion numero_aleatorio(min: Entero, max: Entero): Entero;
+Inicio
+  Var numero: Entero;
+
+  numero = GenerarNumeroAleatorio(min, max)
+
+  // No se cuestione la magia detras de esta funcion. Genera numeros aleatorios, y con eso basta :D
+  
+  Devolver(numero);
+Fin
