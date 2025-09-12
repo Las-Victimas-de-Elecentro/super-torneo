@@ -1,0 +1,115 @@
+Registro: Luchador;
+  id: Entero;
+  nombre: Cadena;
+  vida: Entero;
+  ataque: Entero;
+  defensa: Entero;
+  velocidad: Entero;
+Fin_Registro
+
+Procedimiento init_luchadores()
+Inicio
+  Var i: Entero;
+
+  Luchadores[1].id = 1;
+  Luchadores[1].nombre = "Eminen";
+  Luchadores[1].ataque = 40;
+  Luchadores[1].defensa = 60;
+  Luchadores[1].velocidad = 95;
+
+  // Rellenen con sus personajes
+
+  Luchadores[2].id = 2;
+  Luchadores[2].nombre = "";
+  Luchadores[2].ataque = 0;
+  Luchadores[2].defensa = 0;
+  Luchadores[2].velocidad = 0;
+
+  Luchadores[3].id = 3;
+  Luchadores[3].nombre = "";
+  Luchadores[3].ataque = 0;
+  Luchadores[3].defensa = 0;
+  Luchadores[3].velocidad = 0;
+
+  Luchadores[4].id = 4;
+  Luchadores[4].nombre = "";
+  Luchadores[4].ataque = 0;
+  Luchadores[4].defensa = 0;
+  Luchadores[4].velocidad = 0;
+
+  Luchadores[5].id = 5;
+  Luchadores[5].nombre = "";
+  Luchadores[5].ataque = 0;
+  Luchadores[5].defensa = 0;
+  Luchadores[5].velocidad = 0;
+
+  Luchadores[6].id = 6;
+  Luchadores[6].nombre = "";
+  Luchadores[6].ataque = 0;
+  Luchadores[6].defensa = 0;
+  Luchadores[6].velocidad = 0;
+
+  Luchadores[7].id = 7;
+  Luchadores[7].nombre = "";
+  Luchadores[7].ataque = 0;
+  Luchadores[7].defensa = 0;
+  Luchadores[7].velocidad = 0;
+
+  Luchadores[8].id = 8;
+  Luchadores[8].nombre = "";
+  Luchadores[8].ataque = 0;
+  Luchadores[8].defensa = 0;
+  Luchadores[8].velocidad = 0;
+
+  Luchadores[9].id = 9;
+  Luchadores[9].nombre = "";
+  Luchadores[9].ataque = 0;
+  Luchadores[9].defensa = 0;
+  Luchadores[9].velocidad = 0;
+
+  Luchadores[10].id = 10;
+  Luchadores[10].nombre = "";
+  Luchadores[10].ataque = 0;
+  Luchadores[10].defensa = 0;
+  Luchadores[10].velocidad = 0;
+
+  Luchadores[11].id = 11;
+  Luchadores[11].nombre = "";
+  Luchadores[11].ataque = 0;
+  Luchadores[11].defensa = 0;
+  Luchadores[11].velocidad = 0;
+
+  Luchadores[12].id = 12;
+  Luchadores[12].nombre = "";
+  Luchadores[12].ataque = 0;
+  Luchadores[12].defensa = 0;
+  Luchadores[12].velocidad = 0;
+
+  Luchadores[13].id = 13;
+  Luchadores[13].nombre = "";
+  Luchadores[13].ataque = 0;
+  Luchadores[13].defensa = 0;
+  Luchadores[13].velocidad = 0;
+
+  Luchadores[14].id = 14;
+  Luchadores[14].nombre = "";
+  Luchadores[14].ataque = 0;
+  Luchadores[14].defensa = 0;
+  Luchadores[14].velocidad = 0;
+
+  Luchadores[15].id = 15;
+  Luchadores[15].nombre = "";
+  Luchadores[15].ataque = 0;
+  Luchadores[15].defensa = 0;
+  Luchadores[15].velocidad = 0;
+
+  Luchadores[16].id = 16;
+  Luchadores[16].nombre = "";
+  Luchadores[16].ataque = 0;
+  Luchadores[16].defensa = 0;
+  Luchadores[16].velocidad = 0;
+
+  Para (i = 1 Hasta i = 16) Hacer
+    Luchadores[i].vida = 100;
+  Fin_Para
+Fin_Procedimiento
