@@ -205,7 +205,7 @@ Inicio
   Luchadores[32].defensa = 0;
   Luchadores[32].velocidad = 0;
 
-  Para (i = 1 Hasta i = 32) Hacer
+  Para (i = 1 Hasta i = 32) Hacer;
     Luchadores[i].vida = 100;
   Fin_Para
 Fin_Procedimiento
