@@ -17,13 +17,13 @@ Inicio
   Luchadores[1].defensa = 60;
   Luchadores[1].velocidad = 95;
 
-  // Rellenen con sus personajes
-
   Luchadores[2].id = 2;
   Luchadores[2].nombre = "Pikachu";
   Luchadores[2].ataque = 70;
   Luchadores[2].defensa = 50;
   Luchadores[2].velocidad = 70;
+
+  // Agregen sus personajes, prros!
 
   Luchadores[3].id = 3;
   Luchadores[3].nombre = "";
@@ -109,7 +109,103 @@ Inicio
   Luchadores[16].defensa = 0;
   Luchadores[16].velocidad = 0;
 
-  Para (i = 1 Hasta i = 16) Hacer
+  Luchadores[17].id = 17;
+  Luchadores[17].nombre = "";
+  Luchadores[17].ataque = 0;
+  Luchadores[17].defensa = 0;
+  Luchadores[17].velocidad = 0;
+
+  Luchadores[18].id = 18;
+  Luchadores[18].nombre = "";
+  Luchadores[18].ataque = 0;
+  Luchadores[18].defensa = 0;
+  Luchadores[18].velocidad = 0;
+
+  Luchadores[19].id = 19;
+  Luchadores[19].nombre = "";
+  Luchadores[19].ataque = 0;
+  Luchadores[19].defensa = 0;
+  Luchadores[19].velocidad = 0;
+
+  Luchadores[20].id = 20;
+  Luchadores[20].nombre = "";
+  Luchadores[20].ataque = 0;
+  Luchadores[20].defensa = 0;
+  Luchadores[20].velocidad = 0;
+
+  Luchadores[21].id = 21;
+  Luchadores[21].nombre = "";
+  Luchadores[21].ataque = 0;
+  Luchadores[21].defensa = 0;
+  Luchadores[21].velocidad = 0;
+
+  Luchadores[22].id = 22;
+  Luchadores[22].nombre = "";
+  Luchadores[22].ataque = 0;
+  Luchadores[22].defensa = 0;
+  Luchadores[22].velocidad = 0;
+
+  Luchadores[23].id = 23;
+  Luchadores[23].nombre = "";
+  Luchadores[23].ataque = 0;
+  Luchadores[23].defensa = 0;
+  Luchadores[23].velocidad = 0;
+
+  Luchadores[24].id = 24;
+  Luchadores[24].nombre = "";
+  Luchadores[24].ataque = 0;
+  Luchadores[24].defensa = 0;
+  Luchadores[24].velocidad = 0;
+
+  Luchadores[25].id = 25;
+  Luchadores[25].nombre = "";
+  Luchadores[25].ataque = 0;
+  Luchadores[25].defensa = 0;
+  Luchadores[25].velocidad = 0;
+
+  Luchadores[26].id = 26;
+  Luchadores[26].nombre = "";
+  Luchadores[26].ataque = 0;
+  Luchadores[26].defensa = 0;
+  Luchadores[26].velocidad = 0;
+
+  Luchadores[27].id = 27;
+  Luchadores[27].nombre = "";
+  Luchadores[27].ataque = 0;
+  Luchadores[27].defensa = 0;
+  Luchadores[27].velocidad = 0;
+
+  Luchadores[28].id = 28;
+  Luchadores[28].nombre = "";
+  Luchadores[28].ataque = 0;
+  Luchadores[28].defensa = 0;
+  Luchadores[28].velocidad = 0;
+
+  Luchadores[29].id = 29;
+  Luchadores[29].nombre = "";
+  Luchadores[29].ataque = 0;
+  Luchadores[29].defensa = 0;
+  Luchadores[29].velocidad = 0;
+
+  Luchadores[30].id = 30;
+  Luchadores[30].nombre = "";
+  Luchadores[30].ataque = 0;
+  Luchadores[30].defensa = 0;
+  Luchadores[30].velocidad = 0;
+
+  Luchadores[31].id = 31;
+  Luchadores[31].nombre = "";
+  Luchadores[31].ataque = 0;
+  Luchadores[31].defensa = 0;
+  Luchadores[31].velocidad = 0;
+
+  Luchadores[32].id = 32;
+  Luchadores[32].nombre = "";
+  Luchadores[32].ataque = 0;
+  Luchadores[32].defensa = 0;
+  Luchadores[32].velocidad = 0;
+
+  Para (i = 1 Hasta i = 32) Hacer
     Luchadores[i].vida = 100;
   Fin_Para
 Fin_Procedimiento
