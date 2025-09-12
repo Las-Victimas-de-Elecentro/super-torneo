@@ -20,10 +20,10 @@ Inicio
   // Rellenen con sus personajes
 
   Luchadores[2].id = 2;
-  Luchadores[2].nombre = "";
-  Luchadores[2].ataque = 0;
-  Luchadores[2].defensa = 0;
-  Luchadores[2].velocidad = 0;
+  Luchadores[2].nombre = "Pikachu";
+  Luchadores[2].ataque = 70;
+  Luchadores[2].defensa = 50;
+  Luchadores[2].velocidad = 70;
 
   Luchadores[3].id = 3;
   Luchadores[3].nombre = "";
