@@ -170,10 +170,10 @@ Inicio
   Luchadores[26].velocidad = 90;
 
   Luchadores[27].id = 27;
-  Luchadores[27].nombre = "";
-  Luchadores[27].ataque = 0;
-  Luchadores[27].defensa = 0;
-  Luchadores[27].velocidad = 0;
+  Luchadores[27].nombre = "Rick Sanchez";
+  Luchadores[27].ataque = 69;
+  Luchadores[27].defensa = 69;
+  Luchadores[27].velocidad = 69;
 
   Luchadores[28].id = 28;
   Luchadores[28].nombre = "";
