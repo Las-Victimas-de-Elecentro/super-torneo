@@ -5,6 +5,9 @@ Registro: Luchador;
   ataque: Entero;
   defensa: Entero;
   velocidad: Entero;
+
+  victorias: Entero;
+  derrotas: Entero;
 Fin_Registro
 
 Procedimiento init_luchadores()
@@ -22,8 +25,6 @@ Inicio
   Luchadores[2].ataque = 70;
   Luchadores[2].defensa = 50;
   Luchadores[2].velocidad = 70;
-
-  // Agregen sus personajes, prros!
 
   Luchadores[3].id = 3;
   Luchadores[3].nombre = "The Punisher";
@@ -175,6 +176,8 @@ Inicio
   Luchadores[27].defensa = 69;
   Luchadores[27].velocidad = 69;
 
+  // Agregen sus personajes, prros!
+
   Luchadores[28].id = 28;
   Luchadores[28].nombre = "";
   Luchadores[28].ataque = 0;
@@ -207,5 +210,7 @@ Inicio
 
   Para (i = 1 Hasta i = 32) Hacer;
     Luchadores[i].vida = 100;
+    Luchadores[i].victorias = 0;
+    Luchadores[i].derrotas = 0;
   Fin_Para
 Fin_Procedimiento
