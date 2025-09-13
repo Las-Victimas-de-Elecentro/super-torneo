@@ -1,0 +1,46 @@
+Procedimiento crear_personaje(E/S: luchador_usuario.id, luchador_usuario.nombre, luchador_usuario.vida, luchador_usuario.ataque, luchador_usuario.defensa, luchador_usuario.velocidad, luchador_usuario.victorias, luchador_usuario.derrotas);
+Inicio
+  Var nombre: Cadena;
+  Var tipo, i: Entero;
+  Var seguir_editando = 1: Booleano;
+  Var tipos[4]: Cadena;
+
+  tipos[1] = "Agresivo: enfocado en ataques rapidos";
+  tipos[2] = "Tanque: ataque considerable, poca velocidad";
+  tipos[3] = "Equilibrado: stats equilibradas";
+  tipos[4] = "Raton: stats terribles. Gana por pura suerte";
+
+  Mostrar << "Bienvenido al modulo para crear un personaje!";
+  
+  Mientras (seguir_editando = 1) Hacer
+    Mostrar << "Elige un nombre para tu personaje";
+    Leer >> nombre;
+
+    Mostrar << "Tenemos los siguientes tipos para tu personaje";
+    Para (i = 1 Hasta i = 4) Hacer
+      Mostrar << tipos[i];
+    Fin_Para
+
+    Mostrar << "Elige uno para tu personaje";
+    Leer >> tipo;
+
+    Mientras (tipo < 1 Or tipo > 4) Hacer
+      Mostrar << tipo, " no es una opcion valida. Intenta nuevamente";
+      Leer >> tipo;
+    Fin_Mientras
+
+    luchador_usuario.id = 32;
+    luchador_usuario.nombre = nombre;
+    
+    asignar_stats(tipo, luchador_usuario.vida, luchador_usuario.ataque, luchador_usuario.defensa, luchador_usuario.velocidad, luchador_usuario.victorias, luchador_usuario.derrotas);
+
+    Mostrar << "Este es tu peronaje: ";
+    Mostrar << luchador_usuario.nombre;
+    Mostrar << "Ataque: ", luchador_usuario.ataque;
+    Mostrar << "Defensa: ", luchador_usuario.defensa;
+    Mostrar << "Velocidad: ", luchador_usuario.velocidad;
+
+    Mostrar << "Deseas seguir editando o te quedas con este personaje? (1: seguir editando, 0: salir)";
+    Leer >> seguir_editando;
+  Fin_Mientras
+Fin_Procedimiento
