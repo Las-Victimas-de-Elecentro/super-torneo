@@ -1,0 +1,41 @@
+Algoritmo super_torneo
+
+Registro: Luchador;
+  id: Entero;
+  nombre: Cadena;
+  vida: Entero;
+  ataque: Entero;
+  defensa: Entero;
+  velocidad: Entero;
+
+  victorias: Entero;
+  derrotas: Entero;
+Fin_Registro
+
+Inicio
+  Var luchadores[32]: Luchador;
+  Var luchador_usuario: Luchador;
+  Var opcion, continuar = 1: Booleano;
+
+  init_luchadores();
+
+  Mientras (continuar = 1) Hacer;
+    Mostrar << "Bienvenido seas al torneo. Quieres crear un personaje o seleccionar uno? (0: crear, 1: seleccionar)";
+    Leer >> opcion;
+
+    Si (opcion = 0) Entonces
+      crear_personaje(luchador_usuario.id, luchador_usuario.nombre, luchador_usuario.vida, luchador_usuario.ataque, luchador_usuario.defensa, luchador_usuario.velocidad, luchador_usuario.victorias, luchador_usuario.derrotas);
+      Mostrar << crear_personaje;
+
+      Sino
+        seleccionar_personaje(luchador_usuario.id, luchador_usuario.nombre, luchador_usuario.vida, luchador_usuario.ataque, luchador_usuario.defensa, luchador_usuario.velocidad, luchador_usuario.victorias, luchador_usuario.derrotas);
+    Fin_Si
+
+    torneo(luchador_usuario.id, luchador_usuario.nombre, luchador_usuario.vida, luchador_usuario.ataque, luchador_usuario.defensa, luchador_usuario.velocidad, luchador_usuario.victorias, luchador_usuario.derrotas);
+
+    Mostrar << "Desea jugar otra vez?";
+    Leer >> continuar;
+  Fin_Mientras
+
+  // Aca se pueden mostrar las  estadisiticas
+Fin
