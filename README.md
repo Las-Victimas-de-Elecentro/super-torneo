@@ -2,8 +2,6 @@
   <img src="./images/logo.jpg" width = 450>
 </div>
 
----
-
 ## El Reto:
 
 Dado el siguiente tema: ___________________, diseñe un Algoritmo utilizando arreglos de
