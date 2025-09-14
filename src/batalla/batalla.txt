@@ -10,10 +10,10 @@ Registro: Luchador;
   derrotas: Entero;
 Fin_Registro;
 
-Procedimiento Batalla(E: Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad: Entero, Luchadores[I].nombre: Cadena);
+Procedimiento Batalla(E: Enfrentamiento[i], Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad: Entero, Luchadores[I].nombre: Cadena);
 Inicio
   Var Luchador1, Luchador2: Entero;
-  Luchador1_vida = 1, Luchador2_vida = 1, Turno = 1: Entero;
+  Var Luchador1_vida = 1, Luchador2_vida = 1, Turno = 1: Entero;
   mínimo = 1;
   máximo = 100;
   Enfrentamientos[2]: Entero;
@@ -24,7 +24,7 @@ Inicio
     atacante = Luchador1;
     defensor = Luchador2;
 
-    Sino
+  Sino
     atacante = Luchador2;
     defensor = Luchador1;
   Fin_Si
@@ -32,21 +32,21 @@ Inicio
   Mientras (Luchador1_vida > 0) OR (Luchador2_vida > 0) Hacer;
     Luchador1_vida = Luchadores[atacante].vida;
     Luchador2_vida = Luchadores[defensor].vida;
-    esquive = Aleatorio(minimo, maximo);
+    esquive = Aleatorio(mínimo, máximo);
     Mostrar << "Turno", Turno;
 
     Si (esquive < 80) Entonces;
       Si (Luchadores[atacante].ataque > Luchadores[defensor].defensa) Entonces;
         Daño_Inflingido = Luchadores[atacante].ataque - Luchadores[defensor].defensa;
 
-        Sino
+      Sino
         Daño_Inflingido = (Luchadores[atacante].ataque - Luchadores[defensor].defensa) / 0.10;
       Fin_Si
 
       Luchador2_vida = Luchador2_vida - Daño_Inflingido;
       Mostrar << Luchadores.nombre[atacante], "ha hecho un daño de ", Daño_Inflingido, " el oponente", Luchadores[defensor].nombre, "quedó con: ", Luchador2_vida, "puntos de vida";
 
-      Sino
+    Sino
       Mostrar << "Ha esquivado el ataque.";
     Fin_Si
 

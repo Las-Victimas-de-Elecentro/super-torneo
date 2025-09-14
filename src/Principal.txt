@@ -13,29 +13,28 @@ Registro: Luchador;
 Fin_Registro
 
 Inicio
-  Var luchadores[32]: Luchador;
-  Var luchador_usuario: Luchador;
+  Var Luchadores[32]: Luchador;
   Var opcion, continuar = 1: Booleano;
 
-  init_luchadores();
+  init_luchadores(Luchadores[i].id, Luchadores[i].nombre, Luchadores[i].ataque, Luchadores[i].defensa, Luchadores[i].velocidad, Luchadores[i].vida);
 
   Mientras (continuar = 1) Hacer;
     Mostrar << "Bienvenido seas al torneo. Quieres crear un personaje o seleccionar uno? (0: crear, 1: seleccionar)";
     Leer >> opcion;
 
     Si (opcion = 0) Entonces
-      crear_personaje(luchador_usuario.id, luchador_usuario.nombre, luchador_usuario.vida, luchador_usuario.ataque, luchador_usuario.defensa, luchador_usuario.velocidad, luchador_usuario.victorias, luchador_usuario.derrotas);
+      crear_personaje(Luchadores[i].nombre, Luchadores[i].vida, Luchadores[i].ataque, Luchadores[i].defensa, Luchadores[i].velocidad);
       Mostrar << crear_personaje;
 
       Sino
-        seleccionar_personaje(luchador_usuario.id, luchador_usuario.nombre, luchador_usuario.vida, luchador_usuario.ataque, luchador_usuario.defensa, luchador_usuario.velocidad, luchador_usuario.victorias, luchador_usuario.derrotas);
+        seleccionar_personaje(Luchadores[i].nombre);
     Fin_Si
 
-    torneo(luchador_usuario.id, luchador_usuario.nombre, luchador_usuario.vida, luchador_usuario.ataque, luchador_usuario.defensa, luchador_usuario.velocidad, luchador_usuario.victorias, luchador_usuario.derrotas);
+    torneo(Luchadores[I].id, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Enfrentamientos[K], Ganador: Entero, Luchadores[I].nombre);
 
     Mostrar << "Desea jugar otra vez?";
     Leer >> continuar;
   Fin_Mientras
 
-  // Aca se pueden mostrar las  estadisiticas
+  // Aca se pueden mostrar las  estadisticas
 Fin
