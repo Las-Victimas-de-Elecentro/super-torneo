@@ -10,8 +10,7 @@ Procedimiento torneo(E/S: Luchadores[I].id, Luchadores[I].ataque, Luchadores[I].
 Inicio
 	Contrincantes(mínimo, máximo, I, J, Contrincantes[I]);
 	Reparticion_Batallas(Enfrentamientos[K], Ganador);
-	Mostrar<<Reparticion_Batallas;
-
+	Mostrar << Reparticion_Batallas;
 Fin_Procedimiento
 
 Procedimiento Contrincantes (E/S: mínimo, máximo, I, J, Contrincantes[I]: Entero);
@@ -45,7 +44,7 @@ Inicio
 			Enfrentamientos[K] = Batalla_Octavos[K];
 		Fin_Para
 		Batalla(Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].nombre);
-		Mostrar<<Batalla;
+		Mostrar << Batalla;
 		Resultados_Octavos[I] = Ganador;
 	Fin_Para
 
@@ -56,7 +55,7 @@ Inicio
 			Enfrentamientos[K] = Batalla_Cuartos[K];
 		Fin_Para
 		Batalla(Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].nombre);
-		Mostrar<<Batalla;
+		Mostrar << Batalla;
 		Resultados_Cuartos[I] = Ganador;
 	Fin_Para
 		
@@ -67,7 +66,7 @@ Inicio
 			Enfrentamientos[K] = Batalla_Semis[K];
 		Fin_Para
 		Batalla(Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].nombre);
-		Mostrar<<Batalla;
+		Mostrar << Batalla;
 		Resultados_Semis[I] = Ganador;
 	Fin_Para
 
@@ -77,18 +76,17 @@ Inicio
 		Enfrentamientos[K] = Batalla_Final[K];
 	Fin_Para
 	Batalla(Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].nombre);
-	Mostrar<<Batalla;
+	Mostrar << Batalla;
 	Resultado_Final = Ganador;
 Fin_Procedimiento
 	 
 Procedimiento Resultados (E/S: Ganador, Luchadores[I].id: Entero, Luchadores[I].nombre: Cadena);
 Inicio
-	Mostrar<<”Estos fueron los resultados de la Partida”;
-	Mostrar<<”Personaje ganador: ”, Luchadores[Ganador].nombre;
-	Mostrar<<”Personaje seleccionado: ”, Luchadores[usuario].nombre;
-	Mostrar<<”A continuación todas las posiciones”;
+	Mostrar << ”Estos fueron los resultados de la Partida”;
+	Mostrar << ”Personaje ganador: ”, Luchadores[Ganador].nombre;
+	Mostrar << ”Personaje seleccionado: ”, Luchadores[usuario].nombre;
+	Mostrar << ”A continuación todas las posiciones”;
 	Para (I = 1 hasta I = 16) hacer;
-		Mostrar<<”Posicion ”, I , “ “, Id_Ranking[I];
+		Mostrar << ”Posicion ”, I , “ “, Id_Ranking[I];
 	Fin_Para
 Fin_Procedimiento
-
