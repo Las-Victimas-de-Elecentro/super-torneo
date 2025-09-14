@@ -17,8 +17,8 @@ Procedimiento Contrincantes (E: opcion: Booleano, E/S: mínimo, máximo, I, J, C
 Inicio
 	Var Valor_K: Entero;
 	Num: Entero;
-	máximo = 31;
 	mínimo = 1;
+	máximo = 31;
 	Si (opcion = 0) entonces;
 		Contrincantes[1] = Luchadores[32].id;
 	Sino
