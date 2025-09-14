@@ -55,7 +55,7 @@ Inicio
 			Contador_Batallas = Contador_Batallas + 1;	
 			Enfrentamientos[K] = Batalla_Octavos[K];
 		Fin_Para
-		Batalla(Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas, Luchadores[I].nombre);
+		Batalla(Ganador, Enfrentamientos[I], Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas, Luchadores[I].nombre);
 		Mostrar << Batalla;
 		Resultados_Octavos[I] = Ganador;
 	Fin_Para
@@ -68,7 +68,7 @@ Inicio
 			Contador_Batallas2 = Contador_Batallas2 + 1;
 			Enfrentamientos[K] = Batalla_Cuartos[K];
 		Fin_Para
-		Batalla(Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas, Luchadores[I].nombre);
+		Batalla(Ganador, Enfrentamientos[I], Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas, Luchadores[I].nombre);
 		Mostrar << Batalla;
 		Resultados_Cuartos[I] = Ganador;
 	Fin_Para
@@ -81,7 +81,7 @@ Inicio
 			Contador_Batallas3 = Contador_Batallas3 + 1;
 			Enfrentamientos[K] = Batalla_Semis[K];
 		Fin_Para
-		Batalla(Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas, Luchadores[I].nombre);
+		Batalla(Ganador, Enfrentamientos[I], Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas, Luchadores[I].nombre);
 		Mostrar << Batalla;
 		Resultados_Semis[I] = Ganador;
 	Fin_Para
@@ -93,7 +93,7 @@ Inicio
 		Contador_Batallas4 = Contador_Batallas4 + 1;
 		Enfrentamientos[K] = Batalla_Final[K];
 	Fin_Para
-	Batalla(Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas, Luchadores[I].nombre);
+	Batalla(Ganador, Enfrentamientos[I], Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas, Luchadores[I].nombre);
 	Mostrar << Batalla;
 	Resultado_Final = Ganador;
 Fin_Procedimiento
