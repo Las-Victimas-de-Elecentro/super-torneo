@@ -8,9 +8,10 @@ Registro: Luchador;
 
   victorias: Entero;
   derrotas: Entero;
+  ultima_etapa: Entero; // Ultima etapa en la que participó: 8 = octavos, 4 = cuartos, 2 = semis, 1 = final, 0 = ganador
 Fin_Registro;
 
-Procedimiento Batalla(E/S: Ganador, Enfrentamiento[i], Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas: Entero, Luchadores[I].nombre: Cadena);
+Procedimiento Batalla(E/S: Ganador, Etapa_Actual, Enfrentamiento[i], Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas: Entero, Luchadores[I].nombre: Cadena);
 Inicio
   Var Luchador1, Luchador2: Entero;
   Var Luchador1_vida = 1, Luchador2_vida = 1, Turno = 1: Entero;
@@ -54,7 +55,11 @@ Inicio
     Si (Luchador2_vida <= 0) Entonces;
       Mostrar << Luchadores[defensor].nombre, "ha sido derrotado.";
       Luchadores[atacante].victorias = Luchadores[atacante].victorias + 1;
+      Si (Etapa_Actual = 1) Entonces;
+        Luchadores[atacante].ultima_etapa = 0; // 0 = ganador del torneo
+      Fin_Si
       Luchadores[defensor].derrotas = Luchadores[defensor].derrotas + 1;
+      Luchadores[defensor].ultima_etapa = Etapa_Actual;
       Ganador = Luchadores[atacante].id;
     Fin_Si
 

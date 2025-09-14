@@ -13,9 +13,9 @@ Registro: Luchador;
 Fin_Registro
 
 Inicio
-  Var Luchador: Luchadores[32];
+  Var Luchadores[32]: Luchador;
   Var opcion, continuar = 1: Booleano;
-  Var mínimo, máximo, Ganador, Contrincantes[16], Enfrentamientos[2], usuario, I, J: Entero;
+  Var Ranking_Final[16]: Cadena;
 
   init_luchadores(Luchadores[i].id, Luchadores[i].nombre, Luchadores[i].ataque, Luchadores[i].defensa, Luchadores[i].velocidad, Luchadores[i].vida);
 
@@ -31,7 +31,7 @@ Inicio
         seleccionar_personaje(Luchadores[i].nombre, usuario);
     Fin_Si
 
-    torneo(opcion, I, J, mínimo, máximo, Contrincantes[I], usuario, Luchadores[I].id, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Enfrentamientos[K], Ganador, Luchadores[I].nombre);
+    torneo(opcion, I, J, mínimo, máximo, Contrincantes[I], Luchadores[I].id, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Enfrentamientos[K], Ganador, Luchadores[I].nombre, Ranking_Final);
 
     Mostrar << "Desea jugar otra vez?";
     Leer >> continuar;
