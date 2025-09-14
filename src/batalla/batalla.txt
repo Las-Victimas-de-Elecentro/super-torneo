@@ -30,7 +30,7 @@ Inicio
   Fin_Si
   Luchador1_vida = Luchadores[atacante].vida;
   Luchador2_vida = Luchadores[defensor].vida;
-  Mientras (Luchador1_vida > 0) OR (Luchador2_vida > 0) Hacer;
+  Mientras (Luchador1_vida > 0) AND (Luchador2_vida > 0) Hacer;
     Luchador1_vida = Luchadores[atacante].vida;
     Luchador2_vida = Luchadores[defensor].vida;
     esquive = Aleatorio(mínimo, máximo);
