@@ -1,99 +1,82 @@
 Registro: Ranking_Heroes;
-Heroe:		 Cadena;
-Puntuacion: 	 Entero;
-Posicion:	 Entero;
-Victorias:	 Entero;
-Derrota_Contra:	 Cadena;
+	Heroe: Cadena;
+	Puntuacion: Entero;
+	Posicion: Entero;
+	Victorias: Entero;
+	Derrota_Contra:	Cadena;
 Fin_Registro
 
-Repetir
-	Datos ()
-	Mostrar<<Datos;
-Datos_Creacion_Personaje ()
-Para (I = 1 hasta I = 4) hacer;
-	
-	
-Fin_Para
-Mostrar<<”Desea volver a jugar  ? 1 para Si, 2 para no“;
-Hasta (R = 0);
-Fin_Repetir
-
-
-//Felipe está en procesanding.
-
-En Caso (Derrota > 0) sea;
-    Caso (Derrota_Heroe1 = 1);
-        
-    Caso (Derrota_Heroe2 = 1);
-        
-    Caso (Derrota_Heroe3 = 1);
-                
-    Caso (Derrota_Heroe4 = 1);
-
-    Caso (Derrota_Heroe5 = 1);
-
-    Caso (Derrota_Heroe6 = 1);
-
-    Caso (Derrota_Heroe7 = 1);
-
-    Caso (Derrota_Heroe8 = 1);
-
-    Caso (Derrota_Heroe9 = 1);
-
-    Caso (Derrota_Heroe10 = 1);
-
-    Caso (Derrota_Heroe11 = 1);
-
-    Caso (Derrota_Heroe12 = 1);
-
-    Caso (Derrota_Heroe13 = 1);
-
-    Caso (Derrota_Heroe14 = 1);
-
-    Caso (Derrota_Heroe15 = 1);
-
-    Caso (Derrota_Heroe16 = 1);
-
-Otro Caso
-	
-	Fin_Caso
-Procedimiento Datos_Basico ();
-	Mostrar<<”Ingrese su apodo”;
-	Leer>>Apodo;
-	Mostrar<<”Ingrese si desea elegir un personaje o crear uno desde cero”;
-	Leer>>Seleccion;
+Procedimiento Contrincantes (E/S: mínimo, máximo, I, J, Contrincantes[I]: Entero);
+Inicio
+	Num: Entero;
+	máximo = 31;
+	mínimo = 1;
+	Para (I = 1 hasta I = 15) hacer; 
+			Num = Aleatorio(mínimo, máximo);
+			Contrincantes [I] = Num;
+		Para (J = 1 hasta J = I) hacer;
+			Si (Num = Contrincantes [J]) entonces;
+				Num = Aleatorio(mínimo, máximo); 
+			Sino
+				Contrincantes [J] = Num;
+			Fin_Si
+		Fin_Para
+	Fin_Para
 Fin_Procedimiento
 
-Procedimiento Datos_Creacion_Personaje ();
-	Mostrar<<”Ingrese el nombre de su personaje, Ejemplo: El terror de la noche”;
-	Leer>>Nombre_Personaje;
-	Mostrar<<”Ingrese los valores de su personaje”;
-	Mostrar<<”Ingrese los valores de velocidad”;
-	Leer>>
-	Mostrar<<”Ingrese los valores de defensa”;
-	Leer>>
-	Mostrar<<”Ingrese los valores de daño”;
-	Leer>>
-	Mientras () hacer;
+Procedimiento Reparticion_Batallas (E/S: Enfrentamientos[K], Ganador: Entero);
+Inicio
+	Var Batalla_Octavos [2], Batalla_Cuartos [2], Batalla_Semis [2], Batalla_Final [2]: Entero; 
+	Contador_Batallas = 1, Contador_Batallas2 = 1, Contador_Batallas3 = 1, Contador_Batallas4 = 1: Entero; 
+	Resultados_Octavos[8], Resultados_Cuartos[4], Resultados_Semis[2], Resultado_Final: Entero;
+
+	Para (I = 1 hasta I = 8) hacer;
+		Para (K = 1 hasta K = 2) hacer; 
+			Batalla_Octavos [K] = Contrincantes [Contador_Batallas];
+			Contador_Batallas = Contador_Batallas + 1;	
+			Enfrentamientos[K] = Batalla_Octavos[K];
+		Fin_Para
+		Batallas (Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].nombre);
+		Resultados_Octavos[I] = Ganador;
+	Fin_Para
+
+	Para (I = 1 hasta I = 4) hacer;
+		Para (K = 1 hasta K = 2) hacer; 
+			Batalla_Cuartos [K] = Resultados_Octavos [Contador_Batallas2];
+			Contador_Batallas2 = Contador_Batallas2 + 1;
+			Enfrentamientos[K] = Batalla_Cuartos[K];
+		Fin_Para
+		Batallas (Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].nombre);
+		Resultados_Cuartos[I] = Ganador;
+	Fin_Para
 		
-	Fin_Mientras
+	Para (I = 1 hasta I = 2) hacer;
+		Para (K = 1 hasta K = 2) hacer; 
+			Batalla_Semis [K] = Resultados_Cuartos [Contador_Batallas3];
+			Contador_Batallas3 = Contador_Batallas3 + 1;
+			Enfrentamientos[K] = Batalla_Semis[K];
+		Fin_Para
+		Batallas (Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].nombre);
+		Resultados_Semis[I] = Ganador;
+	Fin_Para
+
+	Para (K = 1 hasta K = 2) hacer; 
+		Batalla_Final [K] = Resultados_Semis [Contador_Batallas4];
+		Contador_Batallas4 = Contador_Batallas4 + 1;
+		Enfrentamientos[K] = Batalla_Final[K];
+	Fin_Para
+	Batallas (Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].nombre);
+	Resultado_Final = Ganador;
 Fin_Procedimiento
-
-
-Fin_Procedimiento
-
-Id_Ranking [I]: Entero;
-Para (I = 1 hasta I = 16) hacer;
-	Id_Ranking [I] = -----;
-Fin_Para
-
-Procedimiento Resultados ();
+	 
+Procedimiento Resultados (E/S: Ganador, Luchadores[I].id: Entero, Luchadores[I].nombre: Cadena);
 Inicio
 	Mostrar<<”Estos fueron los resultados de la Partida”;
-	Mostrar<<”Personaje ganador ”, ---;
-	Mostrar<<”Personaje seleccionado: ”,---;
+	Mostrar<<”Personaje ganador: ”, Luchadores[Ganador].nombre;
+	Mostrar<<”Personaje seleccionado: ”, ;
 	Mostrar<<”A continuación todas las posiciones”;
 	Para (I = 1 hasta I = 16) hacer;
 		Mostrar<<”Posicion ”, I , “ “, Id_Ranking[I];
 	Fin_Para
 Fin_Procedimiento
+
