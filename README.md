@@ -1,7 +1,8 @@
 <div align="center">
   <img src="./images/logo.jpg" width = 450>
-  <h1>ElecentroLand</h1>
 </div>
+
+---
 
 ## Mini proyecto: Torneo de todos los universos
 
