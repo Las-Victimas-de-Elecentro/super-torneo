@@ -1,36 +1,65 @@
-Registro: Heroes;
-    Nombre: Cadena;
-    HP: Entero;
-    Ataque: Entero;
-    Defensa: Entero;
-    Velocidad: Entero;
-Fin_Registro
-minimo = 1;
-maximo = 100;
+Registro: Luchador;
+  id: Entero;
+  nombre: Cadena;
+  vida: Entero;
+  ataque: Entero;
+  defensa: Entero;
+  velocidad: Entero;
 
-Mientras (Hero.HP[1] > 0) or (Hero.HP[2] > 0) Hacer;
-    Si (Hero.Velocidad[1] > Hero.Velocidad[2]) Entonces;
-        Si (Hero.Ataque[1] > Hero.Defensa[2]) Entonces;
-            esquive = Aleatorio(minimo, maximo);
-            Si (esquive < 80) Entonces;
-                Daño_Inflingido = Hero.Ataque[1] - Hero.Defensa[2];
-                Hero.HP[2] = Hero.HP[2] - Daño_Inflingido;
-                Mostrar << Hero.Nombre[1], "ha hecho un daño de ", Daño_Inflingido, " el oponente", Hero.Nombre[2], "quedó con: ", Hero.HP[2], "puntos de vida";
+  victorias: Entero;
+  derrotas: Entero;
+Fin_Registro;
 
+Procedimiento Batalla(E: Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad: Entero, Luchadores[I].nombre: Cadena);
+Inicio
+  Var Luchador1, Luchador2: Entero;
+  Luchador1_vida = 1, Luchador2_vida = 1, Turno = 1: Entero;
+  mínimo = 1;
+  máximo = 100;
+  Enfrentamientos[2]: Entero;
+  Luchador1 = Enfrentamientos[1];
+  Luchador2 = Enfrentamientos[2];
 
+  Si (Luchadores[Luchador1].velocidad > Luchadores[Luchador2].velocidad) Entonces;
+    atacante = Luchador1;
+    defensor = Luchador2;
 
-            Sino
-                Mostrar << "Ha esquivado el ataque.";
-            Fin_Si
-        Sino
-            Si (esquive < 80) Entonces;
-                Daño_Inflingido = (Hero.Ataque[1] - Hero.Defensa[2]) / 0.10;
-                Hero.HP[2] = Hero.HP[2] - Daño_Inflingido;
-                Mostrar << Hero.Nombre[1], "ha hecho un daño de ", Daño_Inflingido, " el oponente", Hero.Nombre[2], "quedó con: ", Hero.HP[2], "puntos de vida";
-            Sino
-                Mostrar << "Ha esquivado el ataque.";
-            Fin_Si
-        Fin_Si
     Sino
-        Hero.HP[1] = Hero.Ataque[2] - Hero.Defensa[1];
+    atacante = Luchador2;
+    defensor = Luchador1;
+  Fin_Si
+
+  Mientras (Luchador1_vida > 0) OR (Luchador2_vida > 0) Hacer;
+    Luchador1_vida = Luchadores[atacante].vida;
+    Luchador2_vida = Luchadores[defensor].vida;
+    esquive = Aleatorio(minimo, maximo);
+    Mostrar << "Turno", Turno;
+
+    Si (esquive < 80) Entonces;
+      Si (Luchadores[atacante].ataque > Luchadores[defensor].defensa) Entonces;
+        Daño_Inflingido = Luchadores[atacante].ataque - Luchadores[defensor].defensa;
+
+        Sino
+        Daño_Inflingido = (Luchadores[atacante].ataque - Luchadores[defensor].defensa) / 0.10;
+      Fin_Si
+
+      Luchador2_vida = Luchador2_vida - Daño_Inflingido;
+      Mostrar << Luchadores.nombre[atacante], "ha hecho un daño de ", Daño_Inflingido, " el oponente", Luchadores[defensor].nombre, "quedó con: ", Luchador2_vida, "puntos de vida";
+
+      Sino
+      Mostrar << "Ha esquivado el ataque.";
     Fin_Si
+
+    Si (Luchador2_vida <= 0) Entonces;
+      Mostrar << Luchadores[defensor].nombre, "ha sido derrotado.";
+      Luchadores[atacante].victorias = Luchadores[atacante].victorias + 1;
+      Luchadores[defensor].derrotas = Luchadores[defensor].derrotas + 1;
+      Ganador = Luchadores[atacante].id;
+    Fin_Si
+
+    aux = atacante;
+    atacante = defensor;
+    defensor = aux;
+    Turno = Turno + 1;
+  Fin_Mientras
+Fin_Procedimiento
