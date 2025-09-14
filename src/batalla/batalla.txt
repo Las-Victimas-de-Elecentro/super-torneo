@@ -10,7 +10,7 @@ Registro: Luchador;
   derrotas: Entero;
 Fin_Registro;
 
-Procedimiento Batalla(E: Enfrentamiento[i], Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad: Entero, Luchadores[I].nombre: Cadena);
+Procedimiento Batalla(E: Enfrentamiento[i], Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas: Entero, Luchadores[I].nombre: Cadena);
 Inicio
   Var Luchador1, Luchador2: Entero;
   Var Luchador1_vida = 1, Luchador2_vida = 1, Turno = 1: Entero;
@@ -28,7 +28,8 @@ Inicio
     atacante = Luchador2;
     defensor = Luchador1;
   Fin_Si
-
+  Luchador1_vida = Luchadores[atacante].vida;
+  Luchador2_vida = Luchadores[defensor].vida;
   Mientras (Luchador1_vida > 0) OR (Luchador2_vida > 0) Hacer;
     Luchador1_vida = Luchadores[atacante].vida;
     Luchador2_vida = Luchadores[defensor].vida;
@@ -61,5 +62,8 @@ Inicio
     atacante = defensor;
     defensor = aux;
     Turno = Turno + 1;
+    aux = Luchador1_vida;
+    Luchador1_vida = Luchador2_vida;
+    Luchador2_vida = aux;
   Fin_Mientras
 Fin_Procedimiento

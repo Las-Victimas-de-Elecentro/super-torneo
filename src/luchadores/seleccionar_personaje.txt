@@ -1,6 +1,6 @@
 Procedimiento seleccionar_personaje(E/S: Luchadores[i].nombre: Cadena, usuario: Entero);
 Inicio
-  Var opcion: Entero;
+  Var seleccion: Entero;
   Mostrar << "Bienvenido a la sección de selección de personajes";
   Mostrar << "Aquí tiene los personajes disponibles";
 
@@ -9,11 +9,11 @@ Inicio
   Fin_Para
 
   Mostrar << "Elija su opción";
-  Leer >> opcion;
-  Mientras (opcion < 1 OR opcion > 31) Hacer;
+  Leer >> seleccion;
+  Mientras (seleccion < 1 OR seleccion > 31) Hacer;
     Mostrar << "Error en datos, intente nuevamente";
-    Leer >> opcion;
+    Leer >> seleccion;
   Fin_Mientras
 
-  usuario = opcion;
+  usuario = seleccion;
 Fin_Procedimiento

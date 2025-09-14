@@ -1,4 +1,4 @@
-Funcion numero_aleatorio(mínimo: Entero, máximo: Entero): Entero;
+Funcion Aleatorio(mínimo: Entero, máximo: Entero): Entero;
 Inicio
   Var numero: Entero;
 

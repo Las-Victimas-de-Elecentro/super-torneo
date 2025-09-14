@@ -27,10 +27,10 @@ Inicio
       Mostrar << crear_personaje;
 
       Sino
-        seleccionar_personaje(Luchadores[i].nombre);
+        seleccionar_personaje(Luchadores[i].nombre, usuario);
     Fin_Si
 
-    torneo(Luchadores[I].id, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Enfrentamientos[K], Ganador: Entero, Luchadores[I].nombre);
+    torneo(opcion, I, J, mínimo, máximo, Contrincantes[I], Luchadores[I].id, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Enfrentamientos[K], Ganador, Luchadores[I].nombre);
 
     Mostrar << "Desea jugar otra vez?";
     Leer >> continuar;

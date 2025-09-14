@@ -6,32 +6,42 @@ Registro: Ranking_Heroes;
 	Derrota_Contra:	Cadena;
 Fin_Registro
 
-Procedimiento torneo(E/S: Luchadores[I].id, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Enfrentamientos[K], Ganador: Entero, Luchadores[I].nombre: Cadena);
+Procedimiento torneo(E: opcion: Booleano, E/S: I, J, mínimo, máximo, Contrincantes[I], Luchadores[I].id, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Enfrentamientos[K], Ganador: Entero, Luchadores[I].nombre: Cadena);
 Inicio
-	Contrincantes(mínimo, máximo, I, J, Contrincantes[I]);
-	Reparticion_Batallas(Enfrentamientos[K], Ganador);
+	Contrincantes(opcion, mínimo, máximo, I, J, Contrincantes[I]);
+	Reparticion_Batallas(Enfrentamientos[K], Ganador, Luchadores[I].id, Luchadores[I].vida, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas, Luchadores[I].nombre);
 	Mostrar << Reparticion_Batallas;
 Fin_Procedimiento
 
-Procedimiento Contrincantes (E/S: mínimo, máximo, I, J, Contrincantes[I]: Entero);
+Procedimiento Contrincantes (E: opcion: Booleano, E/S: mínimo, máximo, I, J, Contrincantes[I]: Entero);
 Inicio
+	Var Valor_K: Entero;
 	Num: Entero;
 	máximo = 31;
 	mínimo = 1;
-	Para (I = 1 hasta I = 15) hacer; 
+	Si (opcion = 0) entonces;
+		Contrincantes[1] = Luchadores[32].id;
+	Sino
+		Contrincantes[1] = usuario;
+	Fin_Si
+	Para (I = 1 hasta I = 16) hacer;
+		Si (I > 1) entonces;
 			Num = Aleatorio(mínimo, máximo);
-			Contrincantes [I] = Num;
-		Para (J = 1 hasta J = I) hacer;
-			Si (Num = Contrincantes [J]) entonces;
-				Num = Aleatorio(mínimo, máximo); 
-			Sino
-				Contrincantes [J] = Num;
-			Fin_Si
-		Fin_Para
+			Valor_K = 2;
+			Para (J = 1 hasta J = Valor_K) hacer;
+				Mientras (Num = Contrincantes[J]) hacer;
+					Num = Aleatorio(mínimo, máximo);
+				Fin_Mientras
+				Contrincantes[I] = Num;
+				Si (Valor_K <= 15) entonces;
+					Valor_K = Valor_K + 1;
+				Fin_Si
+			Fin_Para
+		Fin_Si
 	Fin_Para
 Fin_Procedimiento
 
-Procedimiento Reparticion_Batallas (E/S: Enfrentamientos[K], Ganador: Entero);
+Procedimiento Reparticion_Batallas (E/S: Enfrentamientos[K], Ganador, Luchadores[I].id, Luchadores[I].vida, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas: Entero, Luchadores[I].nombre: Cadena);
 Inicio
 	Var Batalla_Octavos[2], Batalla_Cuartos[2], Batalla_Semis[2], Batalla_Final[2]: Entero; 
 	Contador_Batallas = 1, Contador_Batallas2 = 1, Contador_Batallas3 = 1, Contador_Batallas4 = 1: Entero; 
@@ -43,7 +53,7 @@ Inicio
 			Contador_Batallas = Contador_Batallas + 1;	
 			Enfrentamientos[K] = Batalla_Octavos[K];
 		Fin_Para
-		Batalla(Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].nombre);
+		Batalla(Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas, Luchadores[I].nombre);
 		Mostrar << Batalla;
 		Resultados_Octavos[I] = Ganador;
 	Fin_Para
@@ -54,7 +64,7 @@ Inicio
 			Contador_Batallas2 = Contador_Batallas2 + 1;
 			Enfrentamientos[K] = Batalla_Cuartos[K];
 		Fin_Para
-		Batalla(Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].nombre);
+		Batalla(Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas, Luchadores[I].nombre);
 		Mostrar << Batalla;
 		Resultados_Cuartos[I] = Ganador;
 	Fin_Para
@@ -65,7 +75,7 @@ Inicio
 			Contador_Batallas3 = Contador_Batallas3 + 1;
 			Enfrentamientos[K] = Batalla_Semis[K];
 		Fin_Para
-		Batalla(Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].nombre);
+		Batalla(Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas, Luchadores[I].nombre);
 		Mostrar << Batalla;
 		Resultados_Semis[I] = Ganador;
 	Fin_Para
@@ -75,7 +85,7 @@ Inicio
 		Contador_Batallas4 = Contador_Batallas4 + 1;
 		Enfrentamientos[K] = Batalla_Final[K];
 	Fin_Para
-	Batalla(Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].nombre);
+	Batalla(Ganador, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas, Luchadores[I].nombre);
 	Mostrar << Batalla;
 	Resultado_Final = Ganador;
 Fin_Procedimiento
