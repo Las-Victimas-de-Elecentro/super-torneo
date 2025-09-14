@@ -1,76 +1,79 @@
 Registro: Ranking_Heroes;
-Heroe:		 Cadena;
-Puntuacion: 	 Entero;
-Posicion:	 Entero;
-Victorias:	 Entero;
-Derrota_Contra:	 Cadena;
+	Heroe: Cadena;
+	Puntuacion: Entero;
+	Posicion: Entero;
+	Victorias: Entero;
+	Derrota_Contra:	Cadena;
 Fin_Registro
 
-Procedimiento Contrincantes ();
+Procedimiento Contrincantes (E/S: mínimo, máximo, I, J, Contrincantes[I]: Entero);
 Inicio
-Contrincantes [16]: Entero; 
-máximo = 42; 
-mínimo = 1;
-Para (I = 1 hasta I = 16) hacer; 
-		Num = Aleatorio(mínimo, máximo);
-		Contrincantes [I] = Num;
-Para (J = 1 hasta J = I) hacer;
-Si (Num = Contrincantes [J]) entonces;
+	Num: Entero;
+	máximo = 31;
+	mínimo = 1;
+	Para (I = 1 hasta I = 15) hacer; 
+			Num = Aleatorio(mínimo, máximo);
+			Contrincantes [I] = Num;
+		Para (J = 1 hasta J = I) hacer;
+			Si (Num = Contrincantes [J]) entonces;
 				Num = Aleatorio(mínimo, máximo); 
 			Sino
 				Contrincantes [J] = Num;
 			Fin_Si
 		Fin_Para
-Fin_Para
+	Fin_Para
 Fin_Procedimiento
 
-Procedimiento Reparticion_Batallas ();
+Procedimiento Reparticion_Batallas (E/S: Enfrentamientos[K], Ganador: Entero);
 Inicio
-	Batalla_Octavos [2], Batalla_Cuartos [2], Batalla_Semis [2], Batalla_Final [2]: Entero;  
-		Contador_Batallas = 1;
-		Para (I = 1 hasta I = 8) hacer;
-			Para (K = 1 hasta K = 2) hacer; 
-				Batalla_Octavos [K] = Contrincantes [Contador_Batallas];
-				Contador_Batallas = Contador_Batallas + 1;	
-				Enfrentamientos[K] = Batalla_Octavos[K];
-			Fin_Para
-		 	Batallas (Enfrentamientos[K]);
-		Fin_Para
-	 
-		Contador_Batallas2 = 1;
-		Para (I = 1 hasta I = 4) hacer;
-			Para (K = 1 hasta K = 2) hacer; 
-				Batalla_Cuartos [K] = Resultados_Octavos [Contador_Batallas2];
-				Contador_Batallas2 = Contador_Batallas2 + 1;
-				Enfrentamientos[K] = Batalla_Cuartos[K];
-			Fin_Para
-		 	Batallas (Enfrentamientos[K]);
-		Fin_Para
-		
-		Contador_Batallas3 = 1;
-		Para (I = 1 hasta I = 2) hacer;
-			Para (K = 1 hasta K = 2) hacer; 
-				Batalla_Semis [K] = Resultados_Cuartos [Contador_Batallas3];
-				Contador_Batallas3 = Contador_Batallas3 + 1;
-				Enfrentamientos[K] = Batalla_Semis[K];
-			Fin_Para
-		 	Batallas (Enfrentamientos[K]);
-		Fin_Para
+	Var Batalla_Octavos [2], Batalla_Cuartos [2], Batalla_Semis [2], Batalla_Final [2]: Entero; 
+	Contador_Batallas = 1, Contador_Batallas2 = 1, Contador_Batallas3 = 1, Contador_Batallas4 = 1: Entero; 
+	Resultados_Octavos[8], Resultados_Cuartos[4], Resultados_Semis[2], Resultado_Final: Entero;
 
-		Contador_Batallas4 = 1;
+	Para (I = 1 hasta I = 8) hacer;
 		Para (K = 1 hasta K = 2) hacer; 
-			Batalla_Final [K] = Resultados_Semis [Contador_Batallas4];
-			Contador_Batallas4 = Contador_Batallas4 + 1;
-			Enfrentamientos[K] = Batalla_Final[K];
+			Batalla_Octavos [K] = Contrincantes [Contador_Batallas];
+			Contador_Batallas = Contador_Batallas + 1;	
+			Enfrentamientos[K] = Batalla_Octavos[K];
 		Fin_Para
-		Batallas (Batalla_Final);
+		Batallas (Enfrentamientos[K]);
+		Resultados_Octavos[I] = Ganador;
+	Fin_Para
+
+	Para (I = 1 hasta I = 4) hacer;
+		Para (K = 1 hasta K = 2) hacer; 
+			Batalla_Cuartos [K] = Resultados_Octavos [Contador_Batallas2];
+			Contador_Batallas2 = Contador_Batallas2 + 1;
+			Enfrentamientos[K] = Batalla_Cuartos[K];
+		Fin_Para
+		Batallas (Enfrentamientos[K]);
+		Resultados_Cuartos[I] = Ganador;
+	Fin_Para
+		
+	Para (I = 1 hasta I = 2) hacer;
+		Para (K = 1 hasta K = 2) hacer; 
+			Batalla_Semis [K] = Resultados_Cuartos [Contador_Batallas3];
+			Contador_Batallas3 = Contador_Batallas3 + 1;
+			Enfrentamientos[K] = Batalla_Semis[K];
+		Fin_Para
+		Batallas (Enfrentamientos[K]);
+		Resultados_Semis[I] = Ganador;
+	Fin_Para
+
+	Para (K = 1 hasta K = 2) hacer; 
+		Batalla_Final [K] = Resultados_Semis [Contador_Batallas4];
+		Contador_Batallas4 = Contador_Batallas4 + 1;
+		Enfrentamientos[K] = Batalla_Final[K];
+	Fin_Para
+	Batallas (Enfrentamientos[K]);
+	Resultado_Final = Ganador;
 Fin_Procedimiento
 	 
-Procedimiento Resultados ();
+Procedimiento Resultados (E/S: Ganador, Luchadores[I].id: Entero, Luchadores[I].nombre: Cadena);
 Inicio
 	Mostrar<<”Estos fueron los resultados de la Partida”;
-	Mostrar<<”Personaje ganador ”, ---;
-	Mostrar<<”Personaje seleccionado: ”,---;
+	Mostrar<<”Personaje ganador: ”, Luchadores[Ganador].nombre;
+	Mostrar<<”Personaje seleccionado: ”, ;
 	Mostrar<<”A continuación todas las posiciones”;
 	Para (I = 1 hasta I = 16) hacer;
 		Mostrar<<”Posicion ”, I , “ “, Id_Ranking[I];
