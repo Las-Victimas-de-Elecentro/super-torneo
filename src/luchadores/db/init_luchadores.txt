@@ -1,15 +1,3 @@
-Registro: Luchador;
-  id: Entero;
-  nombre: Cadena;
-  vida: Entero;
-  ataque: Entero;
-  defensa: Entero;
-  velocidad: Entero;
-
-  victorias: Entero;
-  derrotas: Entero;
-Fin_Registro
-
 Procedimiento init_luchadores(E/S: Luchadores[i].id: Entero, Luchadores[i].nombre: Cadena, Luchadores[i].ataque, Luchadores[i].defensa, Luchadores[i].velocidad, Luchadores[i].vida: Entero);
 Inicio
   Var i: Entero;
