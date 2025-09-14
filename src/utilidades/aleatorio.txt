@@ -7,4 +7,4 @@ Inicio
   // No se cuestione la magia detras de esta funcion. Genera numeros aleatorios, y con eso basta :D
   
   Devolver(numero);
-Fin
+Fin_Funcion

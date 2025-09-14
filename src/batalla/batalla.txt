@@ -1,18 +1,6 @@
-Registro: Luchador;
-  id: Entero;
-  nombre: Cadena;
-  vida: Entero;
-  ataque: Entero;
-  defensa: Entero;
-  velocidad: Entero;
-
-  victorias: Entero;
-  derrotas: Entero;
-Fin_Registro;
-
 Procedimiento Batalla(E/S: Ganador, Enfrentamiento[i], Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas: Entero, Luchadores[I].nombre: Cadena);
 Inicio
-  Var Luchador1, Luchador2: Entero;
+  Var Luchador1, Luchador2, Daño_Inflingido: Entero;
   Var Luchador1_vida = 1, Luchador2_vida = 1, Turno = 1: Entero;
   mínimo = 1;
   máximo = 100;
