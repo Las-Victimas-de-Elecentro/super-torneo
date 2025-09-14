@@ -9,7 +9,7 @@ Registro: Luchador;
   victorias: Entero;
   derrotas: Entero;
 Fin_Registro
-Procedimiento Batalla();
+Procedimiento Batalla(E: Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad: Entero, Luchadores[I].nombre: Cadena);
 Inicio
     Var Luchador1, Luchador2: Entero;
     Luchador1_vida = 1, Luchador2_vida = 1, Turno = 1: Entero;
