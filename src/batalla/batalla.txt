@@ -1,18 +1,4 @@
-
-Registro: Luchador;
-  id: Entero;
-  nombre: Cadena;
-  vida: Entero;
-  ataque: Entero;
-  defensa: Entero;
-  velocidad: Entero;
-
-  victorias: Entero;
-  derrotas: Entero;
-  ultima_etapa: Entero; // Ultima etapa en la que participó: 8 = octavos, 4 = cuartos, 2 = semis, 1 = final, 0 = ganador
-Fin_Registro;
-
-Procedimiento Batalla(E/S: Ganador, Etapa_Actual, Enfrentamiento[i], Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas: Entero, Luchadores[I].nombre: Cadena);
+Procedimiento Batalla(E/S: Ganador, Etapa_Actual, Enfrentamiento[i], Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas, Luchadores[I].ultima_etapa: Entero, Luchadores[I].nombre: Cadena);
 
 Inicio
   Var Luchador1, Luchador2, Daño_Inflingido: Entero;
