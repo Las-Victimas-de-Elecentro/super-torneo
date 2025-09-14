@@ -176,8 +176,6 @@ Inicio
   Luchadores[27].defensa = 69;
   Luchadores[27].velocidad = 69;
 
-  // Agregen sus personajes, prros!
-
   Luchadores[28].id = 28;
   Luchadores[28].nombre = "Elecentro";
   Luchadores[28].ataque = 80;

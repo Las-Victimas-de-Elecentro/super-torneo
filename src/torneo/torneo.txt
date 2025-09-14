@@ -6,14 +6,14 @@ Registro: Ranking_Heroes;
 	Derrota_Contra:	Cadena;
 Fin_Registro
 
-Procedimiento torneo(E: opcion: Booleano, E/S: I, J, mínimo, máximo, Contrincantes[I], Luchadores[I].id, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Enfrentamientos[K], Ganador: Entero, Luchadores[I].nombre: Cadena);
+Procedimiento torneo(E: opcion: Booleano, E/S: I, J, mínimo, máximo, Contrincantes[I], usuario, Luchadores[I].id, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Enfrentamientos[K], Ganador: Entero, Luchadores[I].nombre: Cadena);
 Inicio
-	Contrincantes(opcion, mínimo, máximo, I, J, Contrincantes[I]);
+	Contrincantes(opcion, mínimo, máximo, I, J, Contrincantes[I], usuario);
 	Reparticion_Batallas(Enfrentamientos[K], Ganador, Luchadores[I].id, Luchadores[I].vida, Luchadores[I].ataque, Luchadores[I].defensa, Luchadores[I].velocidad, Luchadores[I].victorias, Luchadores[I].derrotas, Luchadores[I].nombre);
 	Mostrar << Reparticion_Batallas;
 Fin_Procedimiento
 
-Procedimiento Contrincantes (E: opcion: Booleano, E/S: mínimo, máximo, I, J, Contrincantes[I]: Entero);
+Procedimiento Contrincantes (E: opcion: Booleano, E/S: mínimo, máximo, I, J, Contrincantes[I], usuario: Entero);
 Inicio
 	Var Valor_K: Entero;
 	Num: Entero;
@@ -47,6 +47,8 @@ Inicio
 	Contador_Batallas = 1, Contador_Batallas2 = 1, Contador_Batallas3 = 1, Contador_Batallas4 = 1: Entero; 
 	Resultados_Octavos[8], Resultados_Cuartos[4], Resultados_Semis[2], Resultado_Final: Entero;
 
+	Mostrar << "Bienvenido al super torneo dimensional, a continuación los octavos de final.";
+	
 	Para (I = 1 hasta I = 8) hacer;
 		Para (K = 1 hasta K = 2) hacer; 
 			Batalla_Octavos [K] = Contrincantes[Contador_Batallas];
@@ -57,7 +59,9 @@ Inicio
 		Mostrar << Batalla;
 		Resultados_Octavos[I] = Ganador;
 	Fin_Para
-
+	
+	Mostrar << "Esos fueron los octavos de final, pasemos a la segunda fase, los cuartos de final.";
+	
 	Para (I = 1 hasta I = 4) hacer;
 		Para (K = 1 hasta K = 2) hacer; 
 			Batalla_Cuartos[K] = Resultados_Octavos[Contador_Batallas2];
@@ -68,7 +72,9 @@ Inicio
 		Mostrar << Batalla;
 		Resultados_Cuartos[I] = Ganador;
 	Fin_Para
-		
+
+	Mostrar << "Esos fueron los cuartos de final, pasemos a la tercera fase, las semifinales.";
+	
 	Para (I = 1 hasta I = 2) hacer;
 		Para (K = 1 hasta K = 2) hacer; 
 			Batalla_Semis[K] = Resultados_Cuartos[Contador_Batallas3];
@@ -79,7 +85,9 @@ Inicio
 		Mostrar << Batalla;
 		Resultados_Semis[I] = Ganador;
 	Fin_Para
-
+	
+	Mostrar << "Finalmente, el momento que se ha estado esperando, la Gran Final del super torneo dimensional!";
+	
 	Para (K = 1 hasta K = 2) hacer; 
 		Batalla_Final[K] = Resultados_Semis[Contador_Batallas4];
 		Contador_Batallas4 = Contador_Batallas4 + 1;
