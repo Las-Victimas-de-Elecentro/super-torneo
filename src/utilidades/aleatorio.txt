@@ -1,8 +1,8 @@
-Funcion numero_aleatorio(min: Entero, max: Entero): Entero;
+Funcion numero_aleatorio(mínimo: Entero, máximo: Entero): Entero;
 Inicio
   Var numero: Entero;
 
-  numero = GenerarNumeroAleatorio(min, max)
+  numero = GenerarNumeroAleatorio(mínimo, máximo)
 
   // No se cuestione la magia detras de esta funcion. Genera numeros aleatorios, y con eso basta :D
   

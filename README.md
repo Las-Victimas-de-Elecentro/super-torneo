@@ -4,13 +4,25 @@
 
 ---
 
-## Mini proyecto: Torneo de todos los universos
+## El Reto:
+
+Dado el siguiente tema: ___________________, diseñe un Algoritmo utilizando arreglos de
+registros, que contenga los siguientes elementos: 8 campos, 1 Registros y sub algoritmos,
+para poder crear la estructura de datos que tenga: la programación del registro, creación y
+validación de los datos de entrada, creación y cálculo de los procesos de salida. Muestre el
+Reporte Final con los campos que fueron llenados y diseñe la gráfica del reporte final.
+
+## Nuestra propuesta: ¡Torneo de todos los universos!
 
 ¡Hemos logrado reunir a héroes de varios universos ficticios para hacerlos pelear en un **torneo a muerte**!
 
 **Solo uno puede ser el vencedor**, pero para saber quién será el que se lleve toda la gloria, es necesario un algoritmo que, utilizando registros y arreglos de registros, permita orquestar todo el evento.
 
 He aquí las especificaciones para ello:
+
+Interacción con el usuario:
+  - Permitir seleccionar un luchador de la lista (la cual tiene 31 opciones diferentes)
+  - Permitir crear un personaje nuevo con estadísticas personalizables
 
 Luchadores (16 en total):
   - Nombre.
