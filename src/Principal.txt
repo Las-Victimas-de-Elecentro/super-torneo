@@ -23,7 +23,7 @@ Inicio
     Mostrar << "Bienvenido seas al torneo. Quieres crear un personaje o seleccionar uno? (0: crear, 1: seleccionar)";
     Leer >> opcion;
 
-    Si (opcion = 0) Entonces
+    Si (opcion = 0) Entonces;
       crear_personaje(Luchadores[i].nombre, Luchadores[i].vida, Luchadores[i].ataque, Luchadores[i].defensa, Luchadores[i].velocidad);
       Mostrar << crear_personaje;
 
